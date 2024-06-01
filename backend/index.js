@@ -31,6 +31,11 @@ const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
   taskType: String,
+  customTimestamp: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
 });
 
 const Task = mongoose.model("Task", taskSchema);
@@ -38,7 +43,6 @@ const Task = mongoose.model("Task", taskSchema);
 app.get("/", async (req, res) => {
   try {
     const tasks = await Task.find({});
-    console.log(typeof tasks);
     console.log("tasks-> " + tasks);
     res.status(200).json(tasks);
   } catch (err) {
@@ -76,12 +80,12 @@ app.post("/start", async (req, res) => {
     res.status(500).json("Internal server error");
   }
 });
-app.post("/complete", async (req, res) => {
+app.post("/completed", async (req, res) => {
   const { id, title, description, taskType } = req.body;
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       id,
-      { title, description, taskType: "completed" },
+      { title, description, taskType: "completed" ,customTimestamp:Date.now()},
       { new: true }
     );
     if (!updatedTask) {
