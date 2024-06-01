@@ -1,6 +1,7 @@
 .tile{
     background-color: #EEEEEE;
     width: 100%;
+    height: auto;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
