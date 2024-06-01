@@ -1,0 +1,24 @@
+.tile{
+    background-color: #EEEEEE;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.tile-title{
+    margin: 10px;
+}
+.btn{
+    color: #3D246C;
+    background-color: #D0BFFF;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 0px 0px 15px 15px;
+    cursor: pointer;
+}

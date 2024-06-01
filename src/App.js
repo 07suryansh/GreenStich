@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Completed from './Components/Completed';
+import Pending from './Components/Pending';
+import Progress from './Components/Progress';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='heading'>Dynamic To-Do List</div>
+      <div className="tasks">
+        <Pending/>
+        <Progress/>
+        <Completed/>
+      </div>
     </div>
   );
 }
