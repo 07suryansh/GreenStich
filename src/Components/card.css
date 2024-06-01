@@ -47,3 +47,6 @@
     cursor: pointer;
     align-self: flex-start;
 }
+.create-btn:hover{
+    background-color: #c9b5ff;
+}

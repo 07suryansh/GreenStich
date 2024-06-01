@@ -1,6 +1,7 @@
 import React from 'react'
 import './card.css'
 import PendingTile from './PendingTile'
+import Task from './Task'
 
 export default function Pending() {
   return (
@@ -9,6 +10,7 @@ export default function Pending() {
         <div className="content">
         <PendingTile/>
         </div>
+        <Task/>
         <button className='create-btn'>➕ Create Task</button>
     </div>
   )
