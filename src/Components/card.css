@@ -22,10 +22,12 @@
 }
 .content{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 95%;
     margin: 5px;
+    gap: 10px;
 }
 .issue{
     color: #952323;
