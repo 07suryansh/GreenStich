@@ -9,7 +9,7 @@ export default function Task(props) {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:3001/", {
+      const response = await axios.post(process.env.REACT_APP_API_URL, {
         body: {
           title,
           description,

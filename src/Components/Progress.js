@@ -8,7 +8,7 @@ export default function Progress(props) {
   // const [submit, setSubmit] = useState(false);
   const getTask = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/");
+      const response = await axios.get(process.env.REACT_APP_API_URL);
       console.log("frontend pending response-> " + response.data);
       const pendingTasks = response.data.filter(
         (task) => task.taskType === "progress"
@@ -25,7 +25,7 @@ export default function Progress(props) {
   }, [props.submit]);
   async function handleClick(id) {
     try {
-      const response = await axios.post("http://localhost:3001/completed/", { id });
+      const response = await axios.post(process.env.REACT_APP_API_URL+"/completed/", { id });
       console.log("successfully start");
       props.setSubmit((prev) => !prev);
     } catch (error) {
