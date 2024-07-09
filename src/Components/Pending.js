@@ -6,11 +6,9 @@ import axios from "axios";
 
 export default function Pending(props) {
   const [taskRes, setTaskRes] = useState([]);
-  // const [submit, setSubmit] = useState(false);
   const getTask = async () => {
     try {
       const response = await axios.get(process.env.REACT_APP_API_URL);
-      console.log("frontend pending response-> " + response.data);
       const pendingTasks = response.data.filter(
         (task) => task.taskType === "pending"
       );
@@ -19,7 +17,6 @@ export default function Pending(props) {
       console.log(error);
     }
   };
-  console.log("taskRes-> " + taskRes);
   useEffect(() => {
     console.log("useeffect");
     getTask();
@@ -27,7 +24,6 @@ export default function Pending(props) {
   async function handleClick(id) {
     try {
       const response = await axios.post(process.env.REACT_APP_API_URL+"/start/", { id });
-      console.log("successfully start");
       props.setSubmit(prev=>!prev)
     } catch (error) {
       console.log(error);

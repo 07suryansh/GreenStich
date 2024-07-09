@@ -5,11 +5,9 @@ import axios from "axios";
 
 export default function Progress(props) {
   const [taskRes, setTaskRes] = useState([]);
-  // const [submit, setSubmit] = useState(false);
   const getTask = async () => {
     try {
       const response = await axios.get(process.env.REACT_APP_API_URL);
-      console.log("frontend pending response-> " + response.data);
       const pendingTasks = response.data.filter(
         (task) => task.taskType === "progress"
       );
@@ -18,7 +16,6 @@ export default function Progress(props) {
       console.log(error);
     }
   };
-  console.log("taskRes-> " + taskRes);
   useEffect(() => {
     console.log("useeffect");
     getTask();
@@ -26,7 +23,6 @@ export default function Progress(props) {
   async function handleClick(id) {
     try {
       const response = await axios.post(process.env.REACT_APP_API_URL+"/completed/", { id });
-      console.log("successfully start");
       props.setSubmit((prev) => !prev);
     } catch (error) {
       console.log(error);
